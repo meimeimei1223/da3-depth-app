@@ -1,0 +1,44 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+cd C:\Projects\da3-depth-app
+notepad .gitignore
+
+node_modules/
+target/
+dist/
+src/models/*.onnx
+*.log
+.DS_Store
+Thumbs.db
+
+# Tauri/Rust
+target/
+
+# ONNX Models (too large)
+src/models/*.onnx
+*.onnx
+
+# Windows
+Thumbs.db
