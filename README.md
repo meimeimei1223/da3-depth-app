@@ -10,26 +10,14 @@ Tauriで作成した深度推定デスクトップアプリです。
 
 [Releases](https://github.com/meimeimei1223/da3-depth-app/releases) からexeをダウンロードしてください。
 
-## セットアップ
+**モデル同梱済み** - ダウンロードしてすぐ使えます！
 
-### 1. モデルのダウンロード
+## 使い方
 
-アプリを動かすにはONNXモデルが必要です。
-
-1. [onnx-community/depth-anything-v3-small](https://huggingface.co/onnx-community/depth-anything-v3-small) にアクセス
-2. `onnx/model.onnx` と `onnx/model.onnx_data` をダウンロード
-3. Pythonで単一ファイルに変換：
-```python
-import onnx
-model = onnx.load("model.onnx")
-onnx.save(model, "model_single.onnx", save_as_external_data=False)
-```
-
-4. `model_single.onnx` をアプリの `src/models/` フォルダに配置
-
-### 2. アプリの実行
-
-exeを起動して、画像を選択し「深度推定を実行」をクリック。
+1. exeを起動
+2. 「ファイルを選択」で画像を選ぶ
+3. 「深度推定を実行」をクリック
+4. 深度マップが表示されます
 
 ## 開発者向け
 
@@ -38,11 +26,25 @@ exeを起動して、画像を選択し「深度推定を実行」をクリッ�
 - Node.js 18+
 - Rust
 
-### ビルド
+### セットアップ
 ```bash
 git clone https://github.com/meimeimei1223/da3-depth-app.git
 cd da3-depth-app
 npm install
+```
+
+### モデルの準備
+
+1. [onnx-community/depth-anything-v3-small](https://huggingface.co/onnx-community/depth-anything-v3-small) からダウンロード
+2. Pythonで単一ファイルに変換：
+```python
+import onnx
+model = onnx.load("onnx/model.onnx")
+onnx.save(model, "src/models/model_single.onnx", save_as_external_data=False)
+```
+
+### 実行
+```bash
 npm run tauri dev
 ```
 
